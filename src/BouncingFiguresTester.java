@@ -23,6 +23,11 @@ public class BouncingFiguresTester {
 		BouncingFigure figure2 = new BouncingRectangle(0, 500, 10, 10, 45.0, 50);
 		box.add(figure2);
 		
+		//ADDED for Q3
+		BouncingFigure figure3 = new BouncingRectangle(50, 50, 10, 20, 300.0, 200);
+		box.add(figure3);
+		//ADDED for Q3
+		
 		frame.add(box);
 		
 		// Make the frame visible
