@@ -7,6 +7,7 @@ public class BouncingRectangle extends BouncingFigure {
 
 	private int height;
 	private int width;
+	
 
 	BouncingRectangle(int xLeft, int yTop, int height, int width, double trajectory, int speed) {
 		setXLeft(xLeft);
@@ -15,10 +16,12 @@ public class BouncingRectangle extends BouncingFigure {
 		setSpeed(speed);
 		this.height=height;
 		this.width=width;
+
 	}
 
 	public void draw(Graphics g) {
 		// TODO Auto-generated method stub
+		
 		Graphics2D g2 = (Graphics2D) g;
 		Rectangle rectangle = new Rectangle(getXLeft(),getYTop(), this.height, this.width);
 		g2.setColor(Color.RED);
@@ -28,26 +31,34 @@ public class BouncingRectangle extends BouncingFigure {
 
 	//Methods to test of object hit each of four possible borders
 	public boolean rightBorderCollision(int screenLimit){
-		if(getXLeft()+this.width > screenLimit)
+		if(getXLeft()+this.width > screenLimit){
+			System.out.println("rightbordercollision");
 			return true;
+		}
 		return false;
 	}
 	
 	public boolean leftBorderCollision(){
-		if(getXLeft() < 0)
+		if(getXLeft() < 0){
+			System.out.println("leftbordercollision");
 			return true;
+		}
 		return false;
 	}
 
 	public boolean upperBorderCollision(){
-		if(getYTop() < 0)
+		if(getYTop() < 0){
+			System.out.println("upperbordercollision");
 			return true;
+		}
 		return false;
 	}
 
 	public boolean lowerBorderCollision(int screenLimit){
-		if(getYTop()+this.height > screenLimit)
+		if(getYTop()+this.height > screenLimit){
+			System.out.println("lowerbordercollision");
 			return true;
+		}
 		return false;
 	}
 }

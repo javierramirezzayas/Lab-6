@@ -11,13 +11,29 @@ public class BouncingBox extends JComponent {
 	}
 
 	public void paintComponent(Graphics g) {
+
+		//		System.out.println("getWidth = " + getWidth());
+
 		for (BouncingFigure f : figures) {
-			// Add code here for Lab Q5
-			if (f.rightBorderCollision(getWidth()) || f.lowerBorderCollision(getHeight())){
-				f.setTrajectory(-10);
+
+			// Add code here for Lab Q5 (START)
+			if(f.rightBorderCollision(getWidth()) || f.leftBorderCollision()){
+				f.setTrajectory((-1 * f.getTrajectory()) + 180);
 			}
-			f.draw(g); f.move();
-			//
+			else{
+				if (f.upperBorderCollision() || f.lowerBorderCollision(getHeight())){
+					f.setTrajectory(-1 * f.getTrajectory());
+
+					System.out.println("Collision");
+				}
+
+				System.out.println("getTrajectory = " + f.getTrajectory());
+				// Add code here for Lab Q5 (END)
+
+				f.draw(g); 
+				f.move();
+
+			}
 		}
 	}
 }
